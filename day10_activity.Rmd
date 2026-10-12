@@ -35,7 +35,7 @@ The `Carseats` data from ISLR2 has one row per store. The variables you'll use:
 
 (`Carseats` is simulated, but it's built to behave like real retail data.)
 
-**Estimated time: 32 minutes.** The goal for today is **Parts 1–4**. If you
+**Estimated time: 33 minutes.** The goal for today is **Parts 1–4**. If you
 finish them, keep going with the **Bonus** section at the end. If you don't
 reach the Bonus, that's completely fine.
 
@@ -167,9 +167,15 @@ management use to plan inventory for this one store?*
 
 ---
 
-## Part 4: Check the Fit (5 minutes)
+## Part 4: Check the Fit (6 minutes)
 
-### Task 4.1: Residual plot
+**How to read a residual plot:** if the model is right, the points scatter
+randomly around the zero line. A U-shape or curve means the truth bends and the
+straight line missed it. A fan shape (spread growing left to right) means the
+noise isn't constant. But a plot that looks random can still hide a variable
+the model left out.
+
+### Task 4.1: Residual plot for the car seat model
 
 Make a residual plot for `fit_full`: fitted values on the x-axis, residuals on
 the y-axis. `fitted()` and `resid()` pull those out of a model. A dashed
@@ -180,13 +186,24 @@ horizontal line at 0 helps.
 
 ```
 
-**How to read it:** if the model is right, the points scatter randomly around
-the zero line. A U-shape or curve means the truth bends and the straight line
-missed it. A fan shape (spread growing left to right) means the noise isn't
-constant.
-
 *Do you see a U-shape, a curve, or a fan? Based on this plot, is there anything
 the straight-line model is obviously missing?*
+
+### Task 4.2: Color by shelf location
+
+`ShelveLoc` is the quality of the shelf spot where a store displays the car
+seats: `Bad`, `Medium`, or `Good`. It is not in `fit_full`. Redo your residual
+plot with the points colored by `ShelveLoc`. (Add `ShelveLoc =
+Carseats$ShelveLoc` to the data you plot, then map it to `color`.)
+
+```{r task4_2}
+# Your code here
+
+```
+
+*Where do the Good-shelf stores sit relative to the zero line? The Bad-shelf
+stores? What does that tell you about `fit_full`'s predictions for each group,
+and what is the model missing?*
 
 ---
 
@@ -207,9 +224,9 @@ Work on these if you finish the main questions.
 
 ### Bonus 2: A category as a predictor
 
-`ShelveLoc` is the quality of the shelf spot where the car seats are displayed:
-`Bad`, `Medium`, or `Good`. It's a category, not a number. Add it to a model
-with `Price`, `CompPrice`, and `Advertising`, and look at the `summary()`.
+Task 4.2 showed `fit_full` is missing shelf location. `ShelveLoc` is a
+category, not a number. Add it to a model with `Price`, `CompPrice`, and
+`Advertising`, and look at the `summary()`.
 
 ```{r bonus2}
 # Your code here
