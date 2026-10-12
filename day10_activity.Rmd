@@ -35,7 +35,7 @@ The `Carseats` data from ISLR2 has one row per store. The variables you'll use:
 
 (`Carseats` is simulated, but it's built to behave like real retail data.)
 
-**Estimated time: 27 minutes.** The goal for today is **Parts 1–3**. If you
+**Estimated time: 32 minutes.** The goal for today is **Parts 1–4**. If you
 finish them, keep going with the **Bonus** section at the end. If you don't
 reach the Bonus, that's completely fine.
 
@@ -167,17 +167,15 @@ management use to plan inventory for this one store?*
 
 ---
 
-## Bonus (optional)
+## Part 4: Check the Fit (5 minutes)
 
-Work on these if you finish the main questions.
-
-### Bonus 1: Residual plot
+### Task 4.1: Residual plot
 
 Make a residual plot for `fit_full`: fitted values on the x-axis, residuals on
 the y-axis. `fitted()` and `resid()` pull those out of a model. A dashed
 horizontal line at 0 helps.
 
-```{r bonus1}
+```{r task4_1}
 # Your code here
 
 ```
@@ -190,7 +188,13 @@ constant.
 *Do you see a U-shape, a curve, or a fan? Based on this plot, is there anything
 the straight-line model is obviously missing?*
 
-### Bonus 2: Two questions to think about
+---
+
+## Bonus (optional)
+
+Work on these if you finish the main questions.
+
+### Bonus 1: Two questions to think about
 
 1. A classmate says: *"Price explains only 20% of the variation in sales, so
    price doesn't matter much."* What's right and what's wrong about that? (Think
@@ -201,13 +205,13 @@ the straight-line model is obviously missing?*
    store's price and also affect its sales. If you could add it, which way
    might it move the price slope?
 
-### Bonus 3: A category as a predictor
+### Bonus 2: A category as a predictor
 
 `ShelveLoc` is the quality of the shelf spot where the car seats are displayed:
 `Bad`, `Medium`, or `Good`. It's a category, not a number. Add it to a model
 with `Price`, `CompPrice`, and `Advertising`, and look at the `summary()`.
 
-```{r bonus3}
+```{r bonus2}
 # Your code here
 
 ```
@@ -218,14 +222,14 @@ compared to it.) How many more car seats does a store with a Good shelf sell
 than one with a Bad shelf, holding price, competitor price, and advertising
 fixed? What happened to R-squared?*
 
-### Bonus 4: Is the price effect the same on every shelf?
+### Bonus 3: Is the price effect the same on every shelf?
 
 Maybe customers who see the car seat on a good shelf care less about its price.
 Writing `Price * ShelveLoc` in a formula gives each shelf spot its own price
-slope (an **interaction**). Fit the Bonus 3 model with `Price * ShelveLoc` in
+slope (an **interaction**). Fit the Bonus 2 model with `Price * ShelveLoc` in
 place of `Price + ShelveLoc`.
 
-```{r bonus4}
+```{r bonus3}
 # Your code here
 
 ```
